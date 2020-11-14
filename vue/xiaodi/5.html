@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>小滴课堂vue入门学习</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            {{title}}
+        </p>
+        <button @click="changeTitle">
+            哈哈哈哈
+        </button>
+
+    </div>
+    <script>
+         new Vue({
+            //绑定到哪个元素中
+            el: "#app",
+            // 数据源
+            data: {
+                title: "哈哈哈哈测试测试"
+
+            },
+            methods: {
+                changeTitle: function () {
+                    this.title = "小小小小"+this.title;
+                }
+            },
+
+        })
+    </script>
+</body>
+
+</html>

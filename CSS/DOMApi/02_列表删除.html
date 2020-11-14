@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表删除</title>
+    <style>
+        #inner2 {
+            position: absolute;
+        }
+
+        #wrap {
+            position: relative;
+            
+        }
+    </style>
+</head>
+
+<body id="body">
+    <ul class="list">
+        <li>
+            hahaha<a href="javascript:;">删除</a>
+        </li>
+        <li>
+            hahaha22<a href="javascript:;">删除</a>
+        </li>
+        <li>
+            hahaha33333<a href="javascript:;">删除</a>
+        </li>
+        <li>
+            hahaha44444<a href="javascript:;">删除</a>
+        </li>
+        <li>
+            hahaha55555<a href="javascript:;">删除</a>
+        </li>
+        <li>
+            hahaha66666<a href="javascript:;">删除</a>
+        </li>
+        <li>
+            hahaha777777<a href="javascript:;">删除</a>
+        </li>
+        <li>
+            hahaha88888<a href="javascript:;">删除</a>
+        </li>
+        <li>
+            hahaha999999<a href="javascript:;">删除</a>
+        </li>
+
+    </ul>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+
+        //  假删除
+        // 数据是最最重要的
+        var aNodes = document.querySelectorAll(".list > li > a");
+        for (var i = 0; i < aNodes.length; i++) {
+            aNodes[i].onclick = function () {
+                console.log(this);
+                this.parentNode.style.display = "none"
+            }
+        }
+    }
+</script>
+
+</html>

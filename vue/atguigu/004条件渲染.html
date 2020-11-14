@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>08_条件渲染</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <!--
+1. 条件渲染指令
+  v-if   在条件不满足时此对象就会被销毁
+  v-else
+  v-show   即使条件不满足，此对象也只是使用style样式进行了隐藏，实际上对象依旧存在，只是不显示
+2. 比较v-if与v-show
+  如果需要频繁切换 v-show 较好
+-->
+
+    <div id="demo">
+        <p v-if="ok">表白成功</p>
+        <p v-else>表白失败</p>
+
+        <hr>
+        <p v-show="ok">成功</p>
+        <p v-show="!ok">失败</p>
+
+        <button @click="ok=!ok">切换</button>
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#demo',
+            data: {
+                ok: true,
+            }
+        })
+    </script>
+</body>
+
+</html>

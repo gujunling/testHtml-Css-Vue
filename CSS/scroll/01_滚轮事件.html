@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_滚轮事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 200px;
+            height: 200px;
+            background: pink;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        var wrapNode = document.querySelector("#wrap");
+        if (wrapNode.addEventListener) {
+
+            // 火狐浏览器中支持DOMMouseScroll事件
+            wrapNode.addEventListener("DOMMouseScroll", function (ev) {
+                ev = ev || event;
+                console.log(ev.detail);
+                // ev.detail   向上为负,向下为正
+            })
+        }
+
+        // 非火狐浏览器才支持onmousewheel事件
+        wrapNode.onmousewheel = function (ev) {
+            ev = ev || event;
+            console.log(ev.wheelDelta);
+            // ev.wheelDelta   向上为正，向下为负
+        }
+
+    }
+</script>
+
+</html>

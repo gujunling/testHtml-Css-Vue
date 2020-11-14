@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性选择器</title>
+    <style>
+        /* 
+        [属性名] 选择含有指定属性的元素
+        [属性名 = 属性值]   选择含有指定属性和属性值的元素
+        [属性名 ^= 属性值]  选择属性值中以指定值开头的元素
+        [属性名 $= 属性值]  选择属性值中以指定值结尾的元素
+        [属性名 *= 属性值]  选择属性值中含有某个值的元素
+
+         */
+        /* p[title] {
+            color: yellowgreen;
+        } */
+        /* p[title=firsesest] {
+            color: yellowgreen;
+        } */
+        /* p[title ^=se] {
+            color: yellowgreen;
+        } */
+        /* p[title $=six] {
+            color: yellowgreen;
+        } */
+        p[title *=se] {
+            color: yellowgreen;
+        }
+
+    </style>
+</head>
+
+<body>
+    <p title="firsesest">111111</p>
+    <p>222222</p>
+    <p title="secondsix">333333</p>
+    <p>444444</p>
+    <p title="five">555555</p>
+    <p title="sesesixsix">666666</p>
+</body>
+
+</html>

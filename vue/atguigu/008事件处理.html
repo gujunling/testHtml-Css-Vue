@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>008_事件处理</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!--
+1. 绑定监听:
+  v-on:xxx="fun"
+  @xxx="fun"
+  @xxx="fun(参数)"
+  默认事件形参: event
+  隐含属性对象: $event
+2. 事件修饰符:
+  .prevent : 阻止事件的默认行为 event.preventDefault()
+  .stop : 停止事件冒泡 event.stopPropagation()
+3. 按键修饰符
+  .keycode : 操作的是某个keycode值的健
+  .enter : 操作的是enter键
+-->
+
+    <div id="example">
+
+        <h2>1. 绑定监听</h2>
+        <!-- 输出当前标签中的值，在不传递参数时默认传了$event,可通过event.target.innerHTML获取   即test1 -->
+        <button @click="test1">test1</button>
+        <!-- 获取当前事件传递的参数，即abc -->
+        <button @click="test2('abc')">test2</button>
+        <!-- 如果传递了参数后想要获取当前标签的值，必须要加上参数$event  ，才可通过event.target.innerHTML获取当前标签的值   即test3  -->
+        <button @click="test3('abcd', $event)">test3</button>
+
+        <h2>2. 事件修饰符</h2>
+        <!-- @click.prevent阻止事件的默认行为，此例中点击此链接会执行点击事件但不会跳转到百度首页 -->
+        <a href="http://www.baidu.com" @click.prevent="test4">百度一下</a>
+        <div style="width: 200px;height: 200px;background: red" @click="test5">
+            <!--  @click.stop停止事件冒泡，防止点击内部蓝色背景时触发外部红色背景的点击事件的方法 -->
+            <div style="width: 100px;height: 100px;background: blue" @click.stop="test6"></div>
+        </div>
+
+        <h2>3. 按键修饰符</h2>
+        <!-- enter键的keycode值为13 -->
+        <input type="text" @keyup.13="test7" placeholder="输入完成后请点击回车">
+        <input type="text" @keyup.enter="test7" placeholder="输入完成后请点击回车">
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#example',
+            data: {
+
+            },
+            methods: {
+                test1(event) {
+                    alert(event.target.innerHTML)
+                },
+                test2(msg) {
+                    alert(msg)
+                },
+                test3(msg, event) {
+                    alert(msg + '---' + event.target.textContent)
+                },
+
+                test4() {
+                    alert('点击了链接')
+                },
+
+                test5() {
+                    alert('点击了外部红色背景')
+                },
+                test6() {
+                    alert('点击了内部蓝色背景')
+                },
+
+                test7(event) {
+                    console.log(event.keyCode)
+
+                    // 可以通过 @keyup.13  设置触发enter键时的响应事件，没有必要在方法里在判断keyCode值
+                    // if (event.keyCode === 13) {
+                    //     alert(event.target.value + '     ' + event.keyCode)
+                    // }
+
+                    alert(event.target.value)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

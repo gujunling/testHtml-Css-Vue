@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>小滴课堂vue入门学习</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        手机号： <input type="text" v-model="phone" />
+        <p>
+            {{phone}}
+        </p>
+    </div>
+    <script>
+         new Vue({
+            //绑定到哪个元素中
+            el: "#app",
+            // 数据源
+            data: {
+                phone: "13164325689"
+
+
+            },
+            methods: {
+
+            },
+
+        })
+    </script>
+</body>
+
+</html>

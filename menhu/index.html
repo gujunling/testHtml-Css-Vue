@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>门户系统</title>
+    <!-- 分辨率的范围：1200 - 2000 -->
+    <style type="text/css">
+      /* CSS reset 开始 */
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      html,
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+        font: 14px "微软雅黑";
+      }
+
+      a {
+        /* text-decoration: none; 清除a标签的下划线 */
+        text-decoration: none;
+        display: block;
+      }
+
+      li {
+        /* list-style: none; 清除li标签前面的 。 */
+        list-style: none;
+      }
+
+      img {
+        display: block;
+      }
+
+      /* CSS reset 结束 */
+
+      /* common css开始 */
+      /* 清除浮动 */
+      .clearfix {
+        *zoom: 1;
+      }
+
+      .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      /* common css结束 */
+      /* 头部样式开始 */
+      #head {
+        background: white !important;
+      }
+
+      #head .headmain {
+        width: 1100px;
+        height: 80px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      #head .headmain > .logo {
+        float: left;
+        margin-top: 30px;
+      }
+
+      #head .headmain > .nav {
+        float: right;
+        margin-top: 50px;
+      }
+
+      #head .headmain > .nav > .list > li {
+        float: left;
+        margin-left: 40px;
+        position: relative;
+      }
+
+      #head .headmain > .nav > .list > li .up {
+        color: #000000;
+        position: absolute;
+        width: 0;
+        overflow: hidden;
+        transition: 1s width;
+      }
+
+      #head .headmain > .nav > .list > li:hover .up {
+        width: 100%;
+      }
+
+      #head .headmain > .arrow {
+        width: 21px;
+        height: 11px;
+        background: url("./img/menuIndicator.png");
+        position: absolute;
+        left: 50%;
+        bottom: -11px;
+        transition: 1s left;
+        z-index: 2;
+      }
+
+      /* 头部样式结束 */
+
+      /* 内容区域样式开始 */
+      #content {
+        background: gray;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #content .list {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        transition: 1s top;
+      }
+
+      #content .list > .home {
+        background: url("img/bg1.jpg") no-repeat;
+      }
+
+      #content .list > .course {
+        background: url("img/bg2.jpg") no-repeat;
+      }
+
+      #content .list > .works {
+        background: url("img/bg3.jpg") no-repeat;
+      }
+
+      #content .list > .about {
+        background: url("img/bg4.jpg") no-repeat;
+      }
+
+      #content .list > .team {
+        background: url("img/bg5.jpg") no-repeat;
+      }
+
+      #content .list > li {
+        position: relative;
+        background-position: 50% 50% !important;
+      }
+
+      #content .list > li > div {
+        width: 1100px;
+        height: 520px;
+        background: pink;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+
+      /* 内容区域样式结束 */
+    </style>
+  </head>
+
+  <body>
+    <section id="wrap">
+      <!-- 流体布局 -->
+      <header id="head">
+        <!-- 固定布局 -->
+        <div class="headmain">
+          <h1 class="logo">
+            <a href="javascript:;">
+              <img src="./img/logo.png" alt="logo" />
+            </a>
+          </h1>
+          <nav class="nav">
+            <ul class="list">
+              <li>
+                <a href="javascript:;">
+                  <div class="up">
+                    <img src="./img/home_gruen.png" alt="home" />
+                  </div>
+                  <div class="down">
+                    <img src="./img/Home.png" alt="home" />
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <div class="up">1</div>
+                  <div class="down">1</div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <div class="up">2</div>
+                  <div class="down">2</div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <div class="up">3</div>
+                  <div class="down">3</div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <div class="up">4</div>
+                  <div class="down">4</div>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="arrow"></div>
+        </div>
+      </header>
+      <!-- 内容区 -->
+      <section id="content">
+        <ul class="list">
+          <li class="home">
+            <div>home</div>
+          </li>
+          <li class="course">
+            <div>course</div>
+          </li>
+          <li class="works">
+            <div>works</div>
+          </li>
+          <li class="about">
+            <div>About</div>
+          </li>
+          <li class="team">
+            <div>team</div>
+          </li>
+        </ul>
+      </section>
+    </section>
+  </body>
+  <script>
+    window.onload = function () {
+      // 获取dom元素
+      var arrowEl = document.querySelector("#head .headmain>.arrow");
+      // 头部区域所有的li
+      var liNodes = document.querySelectorAll("#head .headmain>.nav>.list>li");
+      var upNodes = document.querySelectorAll(
+        "#head .headmain>.nav>.list>li .up"
+      );
+      var firstLiNode = liNodes[0];
+      var firstUpNode = firstLiNode.querySelector(".up");
+      var head = document.querySelector("#head");
+      var content = document.querySelector("#content");
+      // 内容区所有的li
+      var cLiNodes = document.querySelectorAll("#content .list>li");
+      // 找到内容区的list
+      var cList = document.querySelector("#content .list");
+
+      headBind();
+      // 头部交互js事件
+      function headBind() {
+        firstUpNode.style.width = "100%";
+        arrowEl.style.left =
+          firstLiNode.offsetLeft +
+          firstLiNode.offsetWidth / 2 -
+          arrowEl.offsetWidth / 2 +
+          "px";
+        for (var i = 0; i < liNodes.length; i++) {
+          // 转绑很重要，为了下面可以拿到upnodes中的当前upnode
+          liNodes[i].index = i;
+          liNodes[i].onclick = function () {
+            // 此时的this为当前第i个li
+            move(this.index);
+          };
+        }
+        function move(index) {
+          for (var i = 0; i < upNodes.length; i++) {
+            upNodes[i].style.width = "";
+          }
+          upNodes[index].style.width = "100%";
+          arrowEl.style.left =
+            liNodes[index].offsetLeft +
+            liNodes[index].offsetWidth / 2 -
+            arrowEl.offsetWidth / 2 +
+            "px";
+          cList.style.top =
+            -index *
+              (document.documentElement.clientHeight - head.offsetHeight) +
+            "px";
+        }
+      }
+
+      contentBind();
+      // 内容区交互
+      function contentBind() {
+        // 指定内容区的高度
+        content.style.height =
+          document.documentElement.clientHeight - head.offsetHeight + "px";
+        for (var i = 0; i < cLiNodes.length; i++) {
+          cLiNodes[i].style.height =
+            document.documentElement.clientHeight - head.offsetHeight + "px";
+        }
+      }
+    };
+  </script>
+</html>

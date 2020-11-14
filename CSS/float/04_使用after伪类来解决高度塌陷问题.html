@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用after伪类来解决高度塌陷问题</title>
+    <style>
+        .box1 {
+            border: 1px #0556DF solid;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background: pink;
+            float: left;
+        }
+
+        .box1::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        /* 
+         解决高度塌陷问题的最好的方式：
+         使用::after伪类，
+            子类元素设置浮动以后，父元素通过使用::after伪类来设置父元素的样式，
+            首先，通过content属性设置after后的字符为空，其次通过clear属性设置清除子元素的浮动的影响，最后设置父元素的after伪类为块级元素即可完美解决高度塌陷问题。
+                父元素::after {
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+            
+          */
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+
+</html>

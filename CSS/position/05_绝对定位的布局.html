@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对定位的布局</title>
+    <style>
+        .box1 {
+            width: 500px;
+            height: 500px;
+            background: #bbffaa;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background: springgreen;
+        }
+        /* 
+        没有开启定位时的水平布局：
+           margin-left + border-left + padding-left + width + padding-right + border-right + margin-right = 其包含块的内容区的宽度
+           开启了绝对定位以后的水平布局：
+           left + margin-left + border-left + padding-left + width + padding-right + border-right + margin-right + right = 其包含块的内容区的宽度
+         */
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高度塌陷问题</title>
+    <style>
+        .outer {
+            border: 10px solid;
+            /* float: left; */
+            overflow: auto;
+        }
+
+        .inner {
+            width: 100px;
+            height: 100px;
+            background: #bbffaa;
+            float: left;
+        }
+
+        .outerouter {
+            width: 100px;
+            height: 100px;
+            background: pink;
+        }
+
+        /* 
+          高度塌陷问题
+
+             在浮动的布局中，父元素的高度默认是被子元素撑开的。
+             
+             当子元素浮动后，其会完全脱离文档流，子元素从文档流中脱离，将会无法撑起父元素的高度，导致父元素的高度丢失，出现高度塌陷问题
+
+             父元素高度丢失以后，其下的元素会自动上移，导致页面的布局混乱。高度塌陷问题是浮动布局中比较常见的一个问题，这个问题必须要进行处理。
+        
+        
+         */
+
+
+        /* 
+         
+         BFC（Block Formatting Context）块级格式化环境
+
+         BFC是CSS中的一个隐含的属性，可以为一个阿匀速开启BFC，开启BFC的元素会变成一个独立的布局区域
+
+            元素开启BFC后的特点：
+               1.开启BFC的元素不会被浮动元素所覆盖
+               2.开启BFC的元素子元素和父元素的外边距不会发生重叠
+               3.开启BFC的元素可以包含浮动的子元素
+
+
+            可以通过一些特殊的方式来开启元素的BFC(所有的开启BFC的方式都会有一些副作用)
+               1. 设置元素的浮动。（副作用：下方元素会自动上移）（不推荐使用）
+               2. 将元素设置为行内块元素。 （副作用：宽度没有了，而且行内块不适合作为外部的布局容器）（不推荐使用）
+               3. 将元素的overflow设置为一个非visible（非默认值）的值。（副作用较小，是一个临时的解决方式）
+                    常用的方式，为元素设置 overflow: auto; 或overflow: hidden;来开启BFC,使其可以包含浮动元素
+               4. 也可以通过设置绝对定位为absolute或者固定定位fixed来解决高度塌陷问题，但是并不推荐，也会造成父元素的高度丢失问题
+               5. 为父元素添加一个空的div标签，设置div标签的样式为（clear:both;）但这样会添加一个多余的div元素，造成代码冗余
+               6. 完美的解决方案：父元素通过after伪类来解决问题
+                            父元素::after{
+                                content: '';
+                                display: block;
+                                clear: both;
+                            }
+          */
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+
+        </div>
+    </div>
+    <div class="outerouter">
+
+    </div>
+</body>
+
+</html>

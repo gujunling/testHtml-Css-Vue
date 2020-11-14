@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parentNode</title>
+    <style>
+        #inner2 {
+            position: absolute;
+        }
+
+        #wrap {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div id="wrap">
+        wrap
+        <div id="inner1">
+            inner1
+            <div id="inner2">
+                inner2
+            </div>
+
+        </div>
+
+    </div>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var inner2 = document.querySelector("#inner2");
+        // parentNode表示直接父级，不论包含块是怎样，都表示的是当前元素的直接父级
+        console.log(inner2.parentNode.id);
+    }
+</script>
+
+</html>

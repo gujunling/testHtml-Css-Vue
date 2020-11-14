@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器的默认样式</title>
+    <!-- <link rel="stylesheet" href="./normalize.css"> -->
+    <!-- <link rel="stylesheet" href="./reset.css"> -->
+    <!-- 
+
+    重置样式表：专门用来对浏览器的样式进行重置的
+
+    reset.css:直接去除了浏览器的默认样式
+
+    normalize.css  对浏览器的默认样式进行了统一，所有的浏览器的样式都设置为一样的了、
+
+    二者一般不会同时使用
+    
+     -->
+    <style>
+        /* 
+        默认样式：
+           通常情况下，浏览器都会为元素设置一些默认样式
+
+            默认样式的存在会影响到页面的布局，不同的浏览器的默认样式也不一定相同，通常情况下，编写网页时必须要去除浏览器的默认样式（主要是PC端页面）
+         
+
+        list-style 简写属性在一个声明中设置所有的列表属性。
+        list-style:none;   去除列表的属性
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background: #bbffaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+
+    </div>
+    <p>这是一个段落啊 啊啊 啊</p>
+    <p>这是一个段落啊 啊啊 啊</p>
+    <p>这是一个段落啊 啊啊 啊</p>
+    <p>这是一个段落啊 啊啊 啊</p>
+
+    <ul>
+        <li>列表111</li>
+        <li>列表222</li>
+        <li>列表333</li>
+        <li>列表444</li>
+        <li>列表555</li>
+    </ul>
+</body>
+
+</html>
